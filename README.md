@@ -1,6 +1,6 @@
-# HemAIDX Inference
+# HemAIDX
 
-Inference and deployment code for **HemAIDX**, a portable, low-cost system for automated blood smear screening that combines **virtual staining** with **white blood cell detection**. HemAIDX was my final year project at NUST (awarded the Rector's Gold Medal) and is being incubated as a health-tech startup.
+Deployment of **HemAIDX**, a portable, low-cost system for automated blood smear screening that combines **virtual staining** with **white blood cell detection**. 
 
 This repository contains the backend service that runs the trained models on new microscope images. The models were deployed both on a web platform and on a portable device (Raspberry Pi 5 with a camera module mounted on a microscope).
 
@@ -14,10 +14,6 @@ flowchart LR
     D --> E[Background restore<br/>rembg mask]
     E --> F[Virtually stained image]
 
-    G[Smear image] --> H[RT-DETR detector<br/>ONNX, 640x640]
-    H --> I[Confidence filter<br/>score > 0.5]
-    I --> J[Cross-class NMS<br/>IoU 0.4]
-    J --> K[Annotated WBC detections]
 ```
 
 ### Virtual staining (`hemaidx/staining.py`)
@@ -60,10 +56,8 @@ Run the service:
 uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
-## My role
-I worked across the HemAIDX pipeline: I led the registration of stained and unstained image pairs used to train the virtual staining model, assisted with expert-guided white blood cell annotation, and built the deployment code in this repository (patch-based inference, blending, post-processing and the API), as well as the web platform.
 
 ## Team
 HemAIDX was developed by a team at the Department of Computer & Software Engineering, NUST, supervised by Prof. Muhammad Usman Akram, in collaboration with clinical partners.
 
-Trained model weights and clinical images are not included.
+Trained model weights and clinical images not included.
