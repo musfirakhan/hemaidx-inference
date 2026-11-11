@@ -21,12 +21,6 @@ pip install -r requirements.txt
 
 Place the ONNX models in `models/` (not included in this repository), or point to them with environment variables:
 
-| Variable | Default |
-|---|---|
-| `HEMAIDX_STAIN_MODEL` | `models/pix2pixhd_generator.onnx` |
-| `HEMAIDX_DETECT_MODEL` | `models/rtdetr_wbc.onnx` |
-| `HEMAIDX_OUTPUT_DIR` | `outputs` |
-| `HEMAIDX_FRONTEND_ORIGIN` | `http://localhost:5173` |
 
 Run the service:
 
